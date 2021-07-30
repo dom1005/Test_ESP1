@@ -29,5 +29,5 @@ CREATE TABLE DataTypes2(
     `Name`  char(20),
     Gender  ENUM('male','Fermale','Unknown'),
     IsDeleteFlag bit
-
 )
+.......
