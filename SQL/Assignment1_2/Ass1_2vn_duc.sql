@@ -1,22 +1,23 @@
-CREATE DATABASE Assignment1_2VN_Duc;
-
-USE Assignment1_2VN_Duc;
----- Exercise1 ---
+USE assignment1_2vn_duc;
 CREATE TABLE trainee(
-	TraineeID INT UNSIGNED AUTO_INCREMENT,
-	Full_name nvarchar(40),
+	TraineeID SMALLINT UNSIGNED PRIMARY KEY  AUTO_INCREMENT,
+	Full_name NVARCHAR(40) NOT NULL,
     Birth_Date DATE,
     Gender ENUM( 'male', 'female','Unknown') NOT NULL,
-	ET_IQ INT,
-    ET_Gmath INT UNSIGNED,
+	ET_IQ FLOAT,
+    CHECK(ET_IQ <=20),
+    ET_Gmath TINYINT UNSIGNED,
+    check(ET_Gmath <= 20),
     ET_english INT UNSIGNED,
-    Tranining_Class INT UNSIGNED,
-    Evaluation_Notes VARCHAR(100),
-    VTI_Account CHAR(20) NOT NULL UNIQUE
+    check(ET_English <=50),
+    Tranining_Class CHAR(30) NOT NULL,
+    Evaluation_Notes VARCHAR(200)
 
 );
+alter table	trainee
+add column vti_account SMALLINT unsigned unique NOT NULL;
 
---- Exercise 2 ;
+-- ex2 --
 CREATE TABLE DataTypes(
 ID INT PRIMARY KEY AUTO_INCREMENT,
 `Name` char(20),
@@ -30,4 +31,3 @@ CREATE TABLE DataTypes2(
     Gender  ENUM('male','Fermale','Unknown'),
     IsDeleteFlag bit
 )
-.......
